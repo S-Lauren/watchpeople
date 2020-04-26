@@ -12,12 +12,12 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const useStyle = stylesList(); 
 
-function ItemList(props) {
+function ItemList({listItem, userImage}) {
 
   const classes = useStyle(); 
   return (
     <Grid className={classes.root} >
-      {props.listItem.flat(3).map((x, i) => {
+      {listItem.flat(3).map((x, i) => {
       
         return (
           <React.Fragment key={i}>
@@ -26,7 +26,7 @@ function ItemList(props) {
               <Grid container direction="row"  spacing={4}className={classes.root} >
                 <Grid item  xs={12} sm={3}>
                   <ButtonBase className={classes.image}>                  
-                      <img   className={classes.img} src={x.picture}/>
+                      <img   className={classes.img} src={userImage[i]}/>
                   </ButtonBase>
                 </Grid>
                 <Grid item xs={12} sm={6} >

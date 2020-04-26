@@ -13,7 +13,17 @@ const ListPolicy = (props) => {
 
 
   const [list, setList] = useState([data]); 
-  const [search, setSearch] = useState(''); 
+  const [image, setImages] = useState([]);
+
+  useEffect(() => {
+    fetch('https://randomuser.me/api/?results=50')
+    .then(resp => resp.json())
+    .then(data => {
+       const getImage = data.results.map(user => user.picture.large); 
+      setImages(getImage); 
+
+      })
+  }, []); 
 
   const handleSearch = e => {
 
@@ -64,7 +74,7 @@ const ListPolicy = (props) => {
           { list.length === 0&&
             <p> no matches found </p>
           }
-          <ItemList listItem = {list}/>
+          <ItemList listItem = {list} userImage={image}/>
         </Grid>
       
       </Grid>
