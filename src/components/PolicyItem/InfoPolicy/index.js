@@ -8,6 +8,7 @@ import LocalAtmIcon from '@material-ui/icons/LocalAtm';
 import Message from '../InfoPolicy/Message';
 import Dates from '../Dates';
 import UserbyMsg from '../UserbyMsg'; 
+
 const style = { 
     root: {
         backgroundColor: '#2D3E52',

@@ -11,7 +11,8 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 const style = { 
     root: {
         backgroundColor: '#2D3E52',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        margin: '0' 
     },
     expansionSummary: {
         backgroundColor: '#0E1834',
@@ -22,7 +23,10 @@ const style = {
     },
     icon: {
         color: '#FFF'
-    }
+    },
+ expanded: {
+    margin: "0 auto"
+  }
 }
 
 const useStyles = makeStyles(style)
@@ -33,7 +37,7 @@ export default function ExpansionPanel(props){
     const classes = useStyles();
 
     return(
-        <Panel>
+        <Panel className={classes.expanded}>
             <ExpansionPanelSummary className={classes.expansionSummary} expandIcon={<ExpandMoreIcon className={classes.icon} />}>
                 <Typography variant='h2' className={classes.title} >
                     {props.title}

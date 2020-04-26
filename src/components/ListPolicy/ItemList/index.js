@@ -5,9 +5,15 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import {stylesList} from '../stylesList';
 import {Link as MeinRouterLink} from 'react-router-dom';
 
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+
+
+// media query test...
+
 const useStyle = stylesList(); 
 
 function ItemList(props) {
+
   const classes = useStyle(); 
   return (
     <Grid className={classes.root} >
@@ -17,14 +23,14 @@ function ItemList(props) {
           <React.Fragment key={i}>
             { x.isActive === true &&
             <MeinRouterLink to={{ pathname: `/prisoners/${x._id}`,state: {data: x }}}>
-             
               <Grid container direction="row"  spacing={4}className={classes.root} >
-                <Grid item>
+                <Grid item  xs={12} sm={3}>
                   <ButtonBase className={classes.image}>                  
-                      <img  xs={3} className={classes.img} src={x.picture}/>
+                      <img   className={classes.img} src={x.picture}/>
                   </ButtonBase>
                 </Grid>
-                <Grid item xs={12} sm container>
+                <Grid item xs={12} sm={6} >
+
                   <Grid item xs container direction="column" spacing={5}>
                     <Grid item xs className={classes.fontInfos}>
                       <Typography className={classes.fontUser}>{x.name.first} {x.name.last}</Typography>

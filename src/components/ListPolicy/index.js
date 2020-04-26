@@ -45,11 +45,15 @@ const ListPolicy = (props) => {
       
       <Grid spacing={4} width="100%" container direction="column">
      
-        
+         
         <Grid container justify="center" alignItems="center" className={classes.inputBox}> 
-          <Grid item>
-            <h1 className={classes.mainTitle}> List of prisoners</h1>
-            <input className={classes.searchInput} type="text" onChange={handleSearch} placeholder="First or Last name..."/>
+         
+           
+            <Grid item>
+                <h1 xs={3} className={classes.mainTitle}> List of inmates</h1>
+              <input className={classes.searchInput} type="text" onChange={handleSearch} placeholder="First or Last name..."/>
+            </Grid> 
+          <Grid item xs={12} sm={12}>
             <button className={classes.filterButton} onClick={onFilterEyeColor}>Brown eyes</button>
             <button className={classes.filterButton} onClick={onFilterBanana}> Banana </button>
             <button className={classes.filterButton} onClick={onFilterApple}>Apple</button>

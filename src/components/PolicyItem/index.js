@@ -10,7 +10,8 @@ import InfoPolicy from './InfoPolicy';
 
 const style = {
     root: {
-        padding: 0,
+        padding: '0px',
+        margin: '0px'
     }
 }
 

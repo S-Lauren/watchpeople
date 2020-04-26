@@ -28,19 +28,19 @@ export function stylesList() {
       inputBox: {
           backgroundColor:'#0E1834',
           width: '100%',
-          height: '200px',
+          paddingBottom: '20px'
+      
           
         },
       searchInput: {
           backgroundColor:'#010525',
           textAlign: 'center',
-          marginLeft: '20px',
           marginTop: '20px',
-          width: '80%',
+          width: '250px',
           border: 'none',
           height: '35px',
           borderRadius: '50px',
-          display: 'flex',
+          color: '#FFF',
           justifyContent: 'center'
         },
 
@@ -55,7 +55,7 @@ export function stylesList() {
         image: {
           width: 128,
           height: 128,
-          marginLeft: '40px'
+
         },
 
         fontUser: {
