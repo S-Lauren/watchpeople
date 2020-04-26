@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import {stylesList} from '../stylesList';
 import {Link as MeinRouterLink} from 'react-router-dom';
-
+import { ListItem } from '@material-ui/core';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 
@@ -24,12 +24,12 @@ function ItemList({listItem, userImage}) {
             { x.isActive === true &&
             <MeinRouterLink to={{ pathname: `/prisoners/${x._id}`,state: {data: x }}}>
               <Grid container direction="row"  spacing={4}className={classes.root} >
-                <Grid item  xs={12} sm={3}>
+                <Grid item  xs={12} sm={12}>
                   <ButtonBase className={classes.image}>                  
-                      <img   className={classes.img} src={userImage[i]}/>
+                      <img className={classes.img} src={userImage[i]}/>
                   </ButtonBase>
                 </Grid>
-                <Grid item xs={12} sm={6} >
+                <Grid item xs={12} sm={12}  >
 
                   <Grid item xs container direction="column" spacing={5}>
                     <Grid item xs className={classes.fontInfos}>
