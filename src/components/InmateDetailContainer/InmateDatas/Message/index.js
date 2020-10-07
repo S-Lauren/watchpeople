@@ -1,5 +1,5 @@
 import React from 'react'; 
-import InfoItemPolicyItem from '../../componentsGeneral/infoItemPolicyItem'; 
+import InfoItemPolicyItem from '../../GeneralComponents/infoItemPolicyItem'; 
 
 
 
@@ -12,8 +12,6 @@ const Message = (props) => {
       )}   
     </React.Fragment>
   )
-
-
 }
 
 export default Message; 

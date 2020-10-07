@@ -1,8 +1,8 @@
 import React from 'react';
-import InfoItemPolicyItem from '../../componentsGeneral/infoItemPolicyItem.js';
+import InfoItemPolicyItem from '../../GeneralComponents/infoItemPolicyItem.js';
 import {Divider} from '@material-ui/core';
 
-export default function GeneralInfo({user}){
+export default function InmateIdentity({user}){
     return(
         <>    
             <InfoItemPolicyItem title="address :" content={user.address} />

@@ -1,12 +1,12 @@
-import React, {useEffect, useState} from "react"; 
+import React, {useState} from "react"; 
 import {useGetUser} from '../../../hooks/getUser'; 
-import Message from '../InfoPolicy/Message'; 
+import Message from '../InmateDatas/Message'; 
 
 import Grid from '@material-ui/core/Grid';
 import FilterDates from '../FilterDates';
 import FacebookBtn from '../FacebookBtn';
 import {makeStyles} from '@material-ui/core';
-import UserbyMsg from '../UserbyMsg';
+
 
 const style = { 
   btnClose: {

@@ -1,16 +1,11 @@
 import React, {useState, useEffect} from 'react'; 
 import data from '../../data.json'; 
-import ItemList from './ItemList'
 import Grid from '@material-ui/core/Grid';
-import {stylesList} from './stylesList';
 
-const useStyle = stylesList(); 
-
-const ListPolicy = (props) => {
-
-  const classes = useStyle(); 
+import InmateList from '../InmateList/index';
 
 
+const SearchInmates = () => {
 
   const [list, setList] = useState([data]); 
   const [image, setImages] = useState([]);
@@ -52,33 +47,27 @@ const ListPolicy = (props) => {
   }
 
     return (
-      
       <Grid spacing={4} width="100%" container direction="column">
-     
-         
-        <Grid container justify="center" alignItems="center" className={classes.inputBox}> 
-         
-           
-            <Grid item>
-                <h1 xs={3} className={classes.mainTitle}> List of inmates</h1>
-              <input className={classes.searchInput} type="text" onChange={handleSearch} placeholder="First or Last name..."/>
-            </Grid> 
+        <Grid container justify-content="center" alignItems="center"> 
+          <Grid item>
+            <h1 xs={3}> List of inmates</h1>
+            <input type="text" onChange={handleSearch} placeholder="First or Last name..."/>
+          </Grid> 
           <Grid item xs={12} sm={12}>
-            <button className={classes.filterButton} onClick={onFilterEyeColor}>Brown eyes</button>
-            <button className={classes.filterButton} onClick={onFilterBanana}> Banana </button>
-            <button className={classes.filterButton} onClick={onFilterApple}>Apple</button>
-            <button className={classes.filterButton} onClick={allPrisoners}>All active</button>
+            <button onClick={onFilterEyeColor}>Brown eyes</button>
+            <button onClick={onFilterBanana}> Banana </button>
+            <button onClick={onFilterApple}>Apple</button>
+            <button onClick={allPrisoners}>All active</button>
           </Grid> 
         </Grid>
         <Grid item>
           { list.length === 0&&
             <p> no matches found </p>
           }
-          <ItemList listItem = {list} userImage={image}/>
+          <InmateList listItem = {list} userImage={image}/>
         </Grid>
-      
       </Grid>
     )
 }
 
-export default ListPolicy; 
+export default SearchInmates; 
