@@ -1,5 +1,6 @@
 import React from 'react'; 
-import InfoItemPolicyItem from '../../GeneralComponents/infoItemPolicyItem'; 
+import AccordionContent from '../../GeneralComponents/accordionContent';
+
 
 
 
@@ -8,7 +9,7 @@ const Message = (props) => {
   return (     
     <React.Fragment>    
       {props.message.map((x,i) =>  
-        <InfoItemPolicyItem key={i} title="messages" content={x.content}  inline/> 
+        <AccordionContent key={i} title="messages" content={x.content}  inline/> 
       )}   
     </React.Fragment>
   )

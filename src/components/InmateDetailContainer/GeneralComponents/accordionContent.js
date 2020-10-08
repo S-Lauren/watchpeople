@@ -11,16 +11,18 @@ const style = {
     color: '#0CCEC3',
     fontSize: '1.5rem',
     marginLeft: '1rem',
+
   },
   content: {
     color: '#FFF',
     marginLeft: '1rem',
+ 
   }
 }
 
 const useStyles = makeStyles(style)
 
-const InfoItemPolicyItem = ({title, content, inline}) => {
+const AccordionContent = ({title, content, inline}) => {
 const classes = useStyles()
 
   return(
@@ -35,4 +37,4 @@ const classes = useStyles()
   );
 } 
 
-export default InfoItemPolicyItem;
+export default AccordionContent;

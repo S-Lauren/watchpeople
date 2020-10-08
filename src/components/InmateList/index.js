@@ -10,8 +10,8 @@ const useTheme = makeStyles((theme) => ({
     color: '#0CCEC3', 
     textAlign: 'center',
     fontSize: '20px',
-    fontWeigth: '900', 
-    fontFamily: 'arial',
+    fontWeight: 'bold', 
+    fontFamily: 'Helvetica',
     margin: '1rem 0 0 0 ',
     [theme.breakpoints.down('xs')]: {
       fontSize: "25px",
@@ -69,7 +69,7 @@ const theme = useTheme()
         return (
           <React.Fragment key={i}>
             { x.isActive === true &&
-            <MeinRouterLink className={css.link} to={{ pathname: `/prisoners/${x._id}`,state: {data: x }}}>
+            <MeinRouterLink className={css.link} to={{ pathname: `/prisoners/${x._id}`,state: {data: x, img: userImage[i] }}}>
               <Grid container justify="center" direction='row'>
                 <Grid item xs={12} sm={4} md={6} > 
                   <Grid className={css.imageContainer}>
@@ -77,7 +77,7 @@ const theme = useTheme()
                   </Grid>
                 </Grid>
                 <Grid item xs={12} >
-                  <Typography  className={theme.name}>{x.name.first} {x.name.last}</Typography>
+                  <Typography  variant="h1" className={theme.name}>{x.name.first} {x.name.last}</Typography>
                   <Typography className={css.registered}> {x.registered}</Typography> 
                 </Grid>
               </Grid>

@@ -9,6 +9,9 @@ import {makeStyles} from '@material-ui/core';
 
 
 const style = { 
+  root: {
+    margin: '1rem'
+  },
   btnClose: {
     backgroundColor: '#ff5938',
     borderRadius: '50px',
@@ -42,7 +45,7 @@ const classes = useStyles();
 
   return (
     <React.Fragment> 
-      <Grid>
+      <Grid container justify="center" direction="row" className={classes.root}>
         <FilterDates date={props.dates} setopen = {setOpenMsg} setmsg ={setMsg}/>
         <FacebookBtn date={props.dates} setmsg ={setMsg}/>
           {openMsg&&

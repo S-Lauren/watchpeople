@@ -1,5 +1,6 @@
 import React from 'react'; 
-import {makeStyles} from '@material-ui/core';
+import {Grid, makeStyles} from '@material-ui/core';
+import FacebookBtn from '../FacebookBtn';
 
 
 const style = { 
@@ -15,7 +16,7 @@ const style = {
    
   },
       btnApp: {
-      width: '120px',
+      width: '200px',
       fontWeight: 900,
       borderRadius: '50px',
       textAlign: 'center',
@@ -55,8 +56,10 @@ const useStyles = makeStyles(style)
 
   return(
     <React.Fragment>
-      <input className={classes.btnApp} type='date'  onChange ={handleDates} />
-      <button className={classes.btnApp} onClick={displayMsg}>All Messages</button>
+      <Grid container direction="row" justify="center" alignItems='center'>
+        <input className={classes.btnApp} type='date'  onChange ={handleDates} />
+        <button className={classes.btnApp} onClick={displayMsg}>All Messages</button>
+      </Grid>
     </React.Fragment>
   )
 

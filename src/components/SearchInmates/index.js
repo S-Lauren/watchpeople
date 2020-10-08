@@ -42,7 +42,7 @@ const useStyle = makeStyles({
     flexDirection: 'row'
   }, 
   btnStyle: {
-    width: '100px',
+    width: '120px',
     height: '30px', 
     borderRadius: '50px', 
     border: "none",
@@ -60,7 +60,13 @@ const useStyle = makeStyles({
     height: '30px', 
     borderRadius: '50px', 
     textAlign: 'center'
-  }
+  }, 
+  subtitle: {
+    color: 'white', 
+    textAlign: 'center', 
+    marginTop: '1rem'
+  },
+
 })
 
 
@@ -91,8 +97,8 @@ const SearchInmates = () => {
     setList(copydata);   
   }
 
-  const onFilterEyeColor = () => {
-    const copydata = [...data].filter(x => x.eyeColor === "brown")
+  const onFilterStrawberry = () => {
+    const copydata = [...data].filter(x => x => x.favoriteFruit === "apple")
     setList(copydata); 
   }
   const onFilterApple = () => {
@@ -115,16 +121,18 @@ const SearchInmates = () => {
           <Grid item className={css.titleContainer} xs={12} sm={6}> 
             <Typography variant="h3" className={theme.mainTitle} > List of inmates</Typography>
             <input className={css.searchBar} type="text" onChange={handleSearch} placeholder="First or Last name..."/>
+            <Typography className={css.subtitle}><em>Filter inmates by their favorite fruit</em></Typography>
           </Grid> 
           <Grid container className={css.btnContainer} >
+         
             <Box item m={2}xs={12} sm={12} >
-              <button className={css.btnStyle} onClick={onFilterEyeColor}>Brown eyes</button >
+              <button className={css.btnStyle} onClick={onFilterStrawberry}><span role="img" aria-label="strawberry">🍓 Strawberry</span></button >
             </Box>
             <Box item m={2}>
-              <button className={css.btnStyle} onClick={onFilterBanana}> Banana </button >
+              <button className={css.btnStyle} onClick={onFilterBanana}><span role="img" aria-label="banana">🍌 Banana</span> </button >
             </Box>
             <Box item m={2}>
-              <button className={css.btnStyle} onClick={onFilterApple}>Apple</button>
+              <button className={css.btnStyle} onClick={onFilterApple}><span role="img" aria-label="apple">🍏 Apple</span></button>
             </Box>
             <Box item m={2}>
               <button className={css.btnStyle} onClick={allPrisoners}>All Active</button>

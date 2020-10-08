@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core';
 import Cartography from '../Cartography';
 import HeaderInmate from '../HeaderInmate';
 import InmateDatas from '../InmateDatas';
+import { useLocation } from 'react-router-dom';
 
 
 
@@ -25,10 +26,11 @@ const InmateDetails = () => {
 
   const classes = useStyles();
   const user = useGetUser();
-
+  // let location = useLocation()
+  // const randomImg = location.state.img
   return(
     <Grid className={classes.root}>    
-      <HeaderInmate name={user.data.name} url={user.data.picture} age={user.data.age} />
+      <HeaderInmate name={user.data.name}url={user.data.picture} age={user.data.age} />
       <Cartography position={user.data.positions}/>
       <InmateDatas user={user.data}/> 
     </Grid>

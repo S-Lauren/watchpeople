@@ -12,7 +12,7 @@ const style = {
     color: '#FFF',
     fontWeight: 'bold',
     cursor: 'pointer',
-    marginLeft: '10px',
+    margin: '1rem 0 0 1rem',
    "&:hover": {
       backgroundColor: "#06326b",
       color: '#FFF',

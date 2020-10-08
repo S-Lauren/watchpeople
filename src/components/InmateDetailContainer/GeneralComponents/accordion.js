@@ -14,6 +14,7 @@ const style = {
     backgroundColor: '#2D3E52',
     flexDirection: 'column',
     margin: '0',
+    padding: '0'
   },
   expansionSummary: {
     backgroundColor: '#0E1834',
@@ -30,6 +31,7 @@ const style = {
     
     '&$expanded': {
       margin: '0', 
+
     }
   },
 

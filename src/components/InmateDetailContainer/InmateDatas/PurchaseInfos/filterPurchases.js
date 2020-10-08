@@ -4,14 +4,37 @@ import {
   Input,
   Button,
   Box,
-  makeStyles
+  makeStyles, Grid
 } from '@material-ui/core'
 
 
 const styles = {
   root: {
-    backgroundColor: 'grey' 
+    width: '100%',
+    backgroundColor: '#010525', 
+    margin: '1rem', 
+  
+  }, text: {
+    color: 'white', 
+    textAlign: 'center'
+  }, 
+  btnFilter: {
+    width: '200px',
+    backgroundColor:'#0CCEC3', 
+    color:'#010525', 
+    borderRadius: "50px", 
+    margin: '1rem'
+  }, 
+  input: {
+    width: '100px', 
+    marginLeft: '1rem'
+  }, 
+  slider: {
+    color: '#0CCEC3', 
+    margin: '2rem 5rem 0 5rem'
   }
+
+
 }
 
 const useStyles = makeStyles(styles)
@@ -45,29 +68,42 @@ export default function FilterPurchases({setFilter}){
     }
 
   return(
-    <Box className={classes.root}>
-      <Slider 
-        value={valueFilter}
-        onChange={handleSliderChange}
-        aria-labelledby="input-slider"
-        min={0}
-        max={5000}
-      />
-        <p>Filtrer les achats entre 0 et </p>
-      <Input
-        value={valueFilter}
-        margin="dense"
-        onChange={handleInputChange}
-        onBlur={handleBlur}
-        inputProps={{
-          step: 10,
-          min: 0,
-          max: 100,
-          type: 'number',
-          'aria-labelledby': 'input-slider',
-        }}
-      />
-      <Button onClick={handleSubmit} variant="contained">Filter</Button>
-    </Box>
+    <Grid container className={classes.container} justify="center">
+      <Grid  container className={classes.root} justify="center">
+        <Slider 
+          className={classes.slider}
+          value={valueFilter}
+          onChange={handleSliderChange}
+          aria-labelledby="input-slider"
+          min={0}
+          max={5000}
+        />
+        <Grid container justify="center" direction="row" alignItems="center">
+          <Grid item>
+            <p className={classes.text}>Filter purchases between 0 and </p>
+          </Grid>
+          <Grid item>
+          <input
+            className={classes.input}
+            value={valueFilter}
+            margin="dense"
+            onChange={handleInputChange}
+            onBlur={handleBlur}
+            inputProps={{
+              step: 10,
+              min: 0,
+              max: 100,
+              type: 'number',
+              'aria-labelledby': 'input-slider',
+            }}
+          />
+          </Grid>
+        </Grid>
+        <Grid item>
+          <Button className={classes.btnFilter}onClick={handleSubmit} variant="contained">Filter</Button>
+        </Grid>
+      </Grid>
+  
+    </Grid>
   );
 }
