@@ -1,12 +1,11 @@
 import React from 'react';
+
 import {
   makeStyles, 
-  ExpansionPanel as Panel,
-  ExpansionPanelSummary,
-  ExpansionPanelDetails,
-  Typography,
+  Typography, Accordion as MainAccordion, AccordionDetails, AccordionSummary
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
 
 const style = { 
 
@@ -27,9 +26,10 @@ const style = {
     color: '#FFF'
   },
 
-  panel: {
+  expanded: {
+    
     '&$expanded': {
-      margin: '4px 0', 
+      margin: '0', 
     }
   },
 
@@ -37,22 +37,22 @@ const style = {
 
 const useStyles = makeStyles(style)
 
-export default function ExpansionPanel(props){
+export default function Accordion(props){
     
   const classes = useStyles();
 
   return(
-    <Panel className={classes.panel}>
-      <ExpansionPanelSummary className={classes.expansionSummary} expandIcon={<ExpandMoreIcon className={classes.icon} />}>
+    <MainAccordion className={classes.expanded}>
+      <AccordionSummary className={classes.expansionSummary} expandIcon={<ExpandMoreIcon className={classes.icon} />}>
         <Typography variant='h2' className={classes.title} >
           {props.title}
           {props.icon && <span> {props.icon}</span>}
         </Typography>
-      </ExpansionPanelSummary>
-      <ExpansionPanelDetails className={classes.root}>
+      </AccordionSummary>
+      <AccordionDetails className={classes.root}>
         {props.children}
-      </ExpansionPanelDetails>
-    </Panel>
+      </AccordionDetails>
+    </MainAccordion>
   );
 }
 

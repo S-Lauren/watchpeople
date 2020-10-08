@@ -1,17 +1,27 @@
 import React, {useState, useEffect} from 'react'; 
 import data from '../../data.json'; 
 import Grid from '@material-ui/core/Grid';
-
 import InmateList from '../InmateList/index';
-import { makeStyles, Typography } from '@material-ui/core';
+import { Box, makeStyles, Typography } from '@material-ui/core';
 
+const useTheme = makeStyles((theme) => ({
+  mainTitle: {
+    color: "white",
+    fontWeight: "bold",
+    marginTop: "1rem",
+    textAlign: 'center',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: "25px",
+    }
+  },
+}));
 
 
 const useStyle = makeStyles({
   root: {
     backgroundColor: '#0E1834',
     width: '100%', 
-    height:" 24vh",
+    minHeight:" 24vh",
 
   }, 
   mainTitle: {
@@ -25,13 +35,14 @@ const useStyle = makeStyles({
     flexDirection: 'column'
   },
   btnContainer: {
-    width: '200px',
+    width: '80%',
+   
     display: 'flex',
     justifyContent: 'center',
     flexDirection: 'row'
   }, 
   btnStyle: {
-   
+    width: '100px',
     height: '30px', 
     borderRadius: '50px', 
     border: "none",
@@ -45,7 +56,7 @@ const useStyle = makeStyles({
     color: "white", 
     backgroundColor: '#010525', 
     border: 'none', 
-    marginTop: '1rem', 
+    margin: '1rem 2rem 0 2rem', 
     height: '30px', 
     borderRadius: '50px', 
     textAlign: 'center'
@@ -57,7 +68,7 @@ const useStyle = makeStyles({
 const SearchInmates = () => {
 
   const css = useStyle()
-  
+  const theme = useTheme()
   const [list, setList] = useState([data]); 
   const [image, setImages] = useState([]);
 
@@ -100,16 +111,24 @@ const SearchInmates = () => {
     return (
       <>
       <Grid  className={css.root} container justify='center'>
-        <Grid container justify="center" alignItems="center"> 
-          <Grid item className={css.titleContainer}>
-            <Typography variant="h3" className={css.mainTitle} > List of inmates</Typography>
+        <Grid container justify="center" alignItems="center" direction='row'> 
+          <Grid item className={css.titleContainer} xs={12} sm={6}> 
+            <Typography variant="h3" className={theme.mainTitle} > List of inmates</Typography>
             <input className={css.searchBar} type="text" onChange={handleSearch} placeholder="First or Last name..."/>
           </Grid> 
-          <Grid spacing={2} item className={css.btnContainer} xs={12} sm={12}>
-            <button className={css.btnStyle} onClick={onFilterEyeColor}>Brown eyes</button >
-            <button className={css.btnStyle} onClick={onFilterBanana}> Banana </button >
-            <button className={css.btnStyle} onClick={onFilterApple}>Apple</button>
-            <button className={css.btnStyle} onClick={allPrisoners}>All Active</button>
+          <Grid container className={css.btnContainer} >
+            <Box item m={2}xs={12} sm={12} >
+              <button className={css.btnStyle} onClick={onFilterEyeColor}>Brown eyes</button >
+            </Box>
+            <Box item m={2}>
+              <button className={css.btnStyle} onClick={onFilterBanana}> Banana </button >
+            </Box>
+            <Box item m={2}>
+              <button className={css.btnStyle} onClick={onFilterApple}>Apple</button>
+            </Box>
+            <Box item m={2}>
+              <button className={css.btnStyle} onClick={allPrisoners}>All Active</button>
+            </Box>
           </Grid> 
         </Grid>
       </Grid>

@@ -1,40 +1,56 @@
 import React,{useState, useEffect} from 'react';
 import PurchaseInfos from './PurchaseInfos';
-import ExpansionPanel from '../GeneralComponents/expansionPanel';
 import LocalAtmIcon from '@material-ui/icons/LocalAtm';
 import Dates from '../Dates';
 import InmateIdentity from './InmateIdentity';
 import FilterInsult from '../FilterInsult';
+import { Grid, makeStyles } from '@material-ui/core';
+import Accordion from '../GeneralComponents/accordion';
 
 
-
- const InmateDatas = ({user}) => {
-
-    const [soMuch, setSoMuch] = useState(false)
-
-    const getSoMuch = ()=>{
-      if(user.purchases.every(purchaise => purchaise < 3000)){
-        setSoMuch(false)
-      }else{
-        setSoMuch(true)
+  const useStyle = makeStyles({
+    root: {
+      width: '100%', 
+      backgroundColor: 'black',
+      overflow: 'hidden'
+    },
+    expanded: {
+    '&$expanded': {
+        margin: '25px 0'
       }
     }
+  })
 
-    useEffect(()=>{
-      getSoMuch()
-    })
+ const InmateDatas = ({user}) => {
+  const css = useStyle()
+  const [soMuch, setSoMuch] = useState(false)
+
+  const getSoMuch = ()=>{
+    if(user.purchases.every(purchaise => purchaise < 3000)){
+      setSoMuch(false)
+    }else{
+      setSoMuch(true)
+    }
+  }
+
+  useEffect(()=>{
+    getSoMuch()
+  })
 
   return(
+
     <>
-      <ExpansionPanel title="General Info">
+    <Grid className={css.root}>
+      <Accordion className={css.expanded} title="General Info">
         <InmateIdentity user={user} />
-      </ExpansionPanel>
-      <ExpansionPanel title="Last Purchases" icon={soMuch ? <LocalAtmIcon htmlColor='#b71c1c'/> : ""} >
+      </Accordion>
+      <Accordion title="Last Purchases" icon={soMuch ? <LocalAtmIcon htmlColor='#b71c1c'/> : ""} >
         <PurchaseInfos purchases={user.purchases} />
-      </ExpansionPanel>
-      <ExpansionPanel title="Last Messages" icon={<FilterInsult users={user.messages}/>}>
+      </Accordion>
+      <Accordion title="Last Messages" icon={<FilterInsult users={user.messages}/>}>
         <Dates dates={user.messages}/>
-      </ExpansionPanel>
+      </Accordion>
+    </Grid>
     </>
   );
 }

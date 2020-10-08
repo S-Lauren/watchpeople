@@ -3,8 +3,21 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import {Link as MeinRouterLink} from 'react-router-dom';
-import { makeStyles, Paper } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core';
 
+const useTheme = makeStyles((theme) => ({
+  name: {
+    color: '#0CCEC3', 
+    textAlign: 'center',
+    fontSize: '20px',
+    fontWeigth: '900', 
+    fontFamily: 'arial',
+    margin: '1rem 0 0 0 ',
+    [theme.breakpoints.down('xs')]: {
+      fontSize: "25px",
+    }
+  },
+}));
 
 
 const useStyle = makeStyles({
@@ -13,7 +26,7 @@ const useStyle = makeStyles({
     margin: '0',
     padding: '30px', 
     width: '100%',
-    minHeight: '100vh',
+    minHeight: '80vh',
     justifyContent: 'center',
     alignItems: 'center'
   }, 
@@ -49,6 +62,7 @@ const useStyle = makeStyles({
 
 const InmateList = ({listItem, userImage}) => {
 const css = useStyle(); 
+const theme = useTheme()
   return (
     <Grid  container className={css.root}>
       {listItem.flat(3).map((x, i) => {
@@ -63,7 +77,7 @@ const css = useStyle();
                   </Grid>
                 </Grid>
                 <Grid item xs={12} >
-                  <Typography  className={css.name}>{x.name.first} {x.name.last}</Typography>
+                  <Typography  className={theme.name}>{x.name.first} {x.name.last}</Typography>
                   <Typography className={css.registered}> {x.registered}</Typography> 
                 </Grid>
               </Grid>
