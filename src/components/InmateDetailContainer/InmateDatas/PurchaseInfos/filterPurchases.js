@@ -1,9 +1,7 @@
 import React,{useState} from 'react';
 import {
   Slider,
-  Input,
   Button,
-  Box,
   makeStyles, Grid
 } from '@material-ui/core'
 

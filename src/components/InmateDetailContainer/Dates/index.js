@@ -10,9 +10,10 @@ import {makeStyles} from '@material-ui/core';
 
 const style = { 
   root: {
-    margin: '1rem'
+    marginBottom: '1rem'
   },
   btnClose: {
+    margin: '1rem',
     backgroundColor: '#ff5938',
     borderRadius: '50px',
     width: '30px',
@@ -51,7 +52,7 @@ const classes = useStyles();
           {openMsg&&
             <button className={classes.btnClose} onClick={()=> setOpenMsg(false)}>X</button>
           }
-          { openMsg&& 
+          {openMsg&& 
             <Message message= {msg}/>
           }
       </Grid>

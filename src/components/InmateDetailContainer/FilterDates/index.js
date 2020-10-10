@@ -1,6 +1,6 @@
 import React from 'react'; 
 import {Grid, makeStyles} from '@material-ui/core';
-import FacebookBtn from '../FacebookBtn';
+
 
 
 const style = { 
@@ -15,19 +15,19 @@ const style = {
     marginLeft: '10px'
    
   },
-      btnApp: {
-      width: '200px',
-      fontWeight: 900,
-      borderRadius: '50px',
-      textAlign: 'center',
-      marginTop: '20px',
-      marginLeft: '10px',
-      height: '30px', 
-      border: 'none',
-      "&:hover": {
-      backgroundColor: "#0CCEC3",
-      color: '#0E1834',
-      cursor: 'pointer'
+    btnApp: {
+    width: '200px',
+    fontWeight: 900,
+    borderRadius: '50px',
+    textAlign: 'center',
+    marginTop: '20px',
+    marginLeft: '10px',
+    height: '30px', 
+    border: 'none',
+    "&:hover": {
+    backgroundColor: "#0CCEC3",
+    color: '#0E1834',
+    cursor: 'pointer'
     }
   }
 }

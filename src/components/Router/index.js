@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom'; 
 import SearchInmates from '../SearchInmates';
-import {HashRouter as Router} from 'react-router-dom';
+import {MemoryRouter as Router} from 'react-router-dom';
 import InmateDetails from '../InmateDetailContainer/InmateDetails';
 
 const MeinRouter = () => {

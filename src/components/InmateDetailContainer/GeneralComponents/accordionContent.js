@@ -5,18 +5,16 @@ import { makeStyles} from '@material-ui/core';
 const style = { 
   root: {
     paddingTop: '1rem',
-    paddingBottom: '1rem'
+    paddingBottom: '1rem', 
+    textAlign: 'center'
   },
   title: {
     color: '#0CCEC3',
     fontSize: '1.5rem',
-    marginLeft: '1rem',
-
   },
   content: {
     color: '#FFF',
-    marginLeft: '1rem',
- 
+    padding: '1rem'
   }
 }
 
@@ -30,7 +28,7 @@ const classes = useStyles()
       <Typography className={classes.title} variant="h3" display={inline ? "inline" : "block"}>
         {title}
       </Typography>
-      <Typography className={classes.content} display={inline ? "inline" : "block"}>
+      <Typography className={classes.content} >
         {content}
       </Typography>
     </Box>

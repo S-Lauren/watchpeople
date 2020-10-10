@@ -1,7 +1,6 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import ButtonBase from '@material-ui/core/ButtonBase';
 import {Link as MeinRouterLink} from 'react-router-dom';
 import { makeStyles } from '@material-ui/core';
 
@@ -54,7 +53,10 @@ const useStyle = makeStyles({
   image: {
     borderRadius: '50%',
     justifyContent: 'center'
-  }
+  },
+  loading: {
+    color: 'white'
+  } 
 })
 
 
@@ -63,31 +65,35 @@ const useStyle = makeStyles({
 const InmateList = ({listItem, userImage}) => {
 const css = useStyle(); 
 const theme = useTheme()
+
+
   return (
+
     <Grid  container className={css.root}>
       {listItem.flat(3).map((x, i) => {
         return (
           <React.Fragment key={i}>
-            { x.isActive === true &&
-            <MeinRouterLink className={css.link} to={{ pathname: `/prisoners/${x._id}`,state: {data: x, img: userImage[i] }}}>
-              <Grid container justify="center" direction='row'>
-                <Grid item xs={12} sm={4} md={6} > 
-                  <Grid className={css.imageContainer}>
-                    <img className={css.image} src={userImage[i]} alt="inmate portrait"/>
+            {x.isActive === true &&
+            <MeinRouterLink className={css.link} to={{ pathname: `/prisoners/${x._id}`,state: {data: x, img: userImage[i]}}}>
+                <Grid container justify="center" direction='row'>
+                  <Grid item xs={12} sm={4} md={6} > 
+                    <Grid className={css.imageContainer}>
+                      <img className={css.image}  src={userImage[i]} alt="inmate portrait"/>
+                    </Grid>
+                  </Grid>
+                  <Grid item xs={12} >
+                    <Typography  variant="h1" className={theme.name}>{x.name.first} {x.name.last}</Typography>
+                    <Typography className={css.registered}> {x.registered}</Typography> 
                   </Grid>
                 </Grid>
-                <Grid item xs={12} >
-                  <Typography  variant="h1" className={theme.name}>{x.name.first} {x.name.last}</Typography>
-                  <Typography className={css.registered}> {x.registered}</Typography> 
-                </Grid>
-              </Grid>
             </MeinRouterLink>
+        
             }
         </React.Fragment>
-
         )       
       })}
     </Grid>
+ 
   )
 }
 

@@ -5,17 +5,17 @@ import AccordionContent from '../../GeneralComponents/accordionContent.js';
 export default function InmateIdentity({user}){
     return(
         <>    
-            <AccordionContent title="address :" content={user.address} />
-            <Divider />
-            <AccordionContent title="phone :" content={user.phone}  inline />
-            <Divider />
-            <AccordionContent title="email :"  content={user.email} />
-            <Divider />
-            <AccordionContent title="age :" content={`${user.age} ans`} inline />
-            <Divider />
-            <AccordionContent title="eye color :" content={user.eyeColor} inline />
-            <Divider />
-            <AccordionContent title="favorite fruit :" content={user.favoriteFruit} inline />
+          <AccordionContent title="Address" content={user.address} />
+          <Divider />
+          <AccordionContent title="Phone" content={user.phone}  inline />
+          <Divider />
+          <AccordionContent title="Email"  content={user.email} />
+          <Divider />
+          <AccordionContent title="Age" content={`${user.age} ans`} inline />
+          <Divider />
+          <AccordionContent title="Eye color" content={user.eyeColor} inline />
+          <Divider />
+          <AccordionContent title="favorite fruit" content={user.favoriteFruit} inline />
         </>
     );
 }

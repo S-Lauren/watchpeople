@@ -3,6 +3,7 @@ import data from '../../data.json';
 import Grid from '@material-ui/core/Grid';
 import InmateList from '../InmateList/index';
 import { Box, makeStyles, Typography } from '@material-ui/core';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useTheme = makeStyles((theme) => ({
   mainTitle: {
@@ -13,6 +14,9 @@ const useTheme = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       fontSize: "25px",
     }
+  },  
+  progress: {
+    margin: theme.spacing.unit * 2,
   },
 }));
 
@@ -66,6 +70,26 @@ const useStyle = makeStyles({
     textAlign: 'center', 
     marginTop: '1rem'
   },
+  spinner: {
+    marginTop: '1rem'
+  }, 
+  load: {
+    color: 'white', 
+    fontSize: '25px', 
+    fontFamily: 'Roboto', 
+    fontWeight: 'bold'
+  }, 
+  loadContainer: {
+    paddingTop: '8vh'
+  }, 
+  matches: {
+    color: 'white', 
+    fontSize: '25px', 
+    fontFamily: 'Roboto', 
+    fontWeight: 'bold', 
+    textAlign: 'center', 
+    paddingTop: '2rem'
+  }
 
 })
 
@@ -77,16 +101,18 @@ const SearchInmates = () => {
   const theme = useTheme()
   const [list, setList] = useState([data]); 
   const [image, setImages] = useState([]);
-
+ 
+ 
+ 
   useEffect(() => {
     fetch('https://randomuser.me/api/?results=50')
     .then(resp => resp.json())
-    .then(data => {
-       const getImage = data.results.map(user => user.picture.large); 
+    .then(data => {    
+      const getImage = data.results.map(user => user.picture.large); 
       setImages(getImage); 
-
-      })
+    })
   }, []); 
+
 
   const handleSearch = e => {
 
@@ -119,7 +145,7 @@ const SearchInmates = () => {
       <Grid  className={css.root} container justify='center'>
         <Grid container justify="center" alignItems="center" direction='row'> 
           <Grid item className={css.titleContainer} xs={12} sm={6}> 
-            <Typography variant="h3" className={theme.mainTitle} > List of inmates</Typography>
+            <Typography variant="h3" className={theme.mainTitle}> List of inmates</Typography>
             <input className={css.searchBar} type="text" onChange={handleSearch} placeholder="First or Last name..."/>
             <Typography className={css.subtitle}><em>Filter inmates by their favorite fruit</em></Typography>
           </Grid> 
@@ -142,10 +168,25 @@ const SearchInmates = () => {
       </Grid>
    
       { list.length === 0&&
-        <p> no matches found </p>
+        <Typography className={css.matches}> No matches found... </Typography>
       }
-      <InmateList listItem={list} userImage={image}/>
-   
+
+      {image[0] === undefined && 
+      <Grid container justify="center" className={css.loadContainer} alignItems='center' direction='column'>
+        <Grid item>
+          <Typography variant='h1' className={css.load}>Loading ...</Typography>
+        </Grid>
+        <Grid item className={css.spinner}>
+          <CircularProgress
+            className={theme.progress}
+            size={300}
+          />
+        </Grid>
+      </Grid>    
+      }
+      {image[0]&&
+        <InmateList listItem={list} userImage={image}/>   
+      }
     </>
     )
 }

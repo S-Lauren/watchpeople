@@ -8,12 +8,12 @@ export function useGetUser(){
     const location = useLocation()
     const param = useParams()
     
-    if(location.state === undefined){
-        const data = dataFake;
-        resultat = data.filter(user => user._id === param.id)  
-        return {data:resultat[0]}
-    }else{
-        return location.state;
-    }
+  if(location.state === undefined){
+    const data = dataFake;
+    resultat = data.filter(user => user._id === param.id)  
+    return {data:resultat[0]}
+  } else {
+    return location.state;
+  }
     
 }

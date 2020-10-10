@@ -3,22 +3,22 @@ import {makeStyles} from '@material-ui/core';
 
 
 const style = { 
-  btnFb: {
-    width: '100px',
-    backgroundColor: '#395694',
-    borderRadius: '50px',
-    border: 'none',
-    height: '30px',
-    color: '#FFF',
-    fontWeight: 'bold',
-    cursor: 'pointer',
-    margin: '1rem 0 0 1rem',
-   "&:hover": {
+    btnFb: {
+      width: '100px',
+      backgroundColor: '#395694',
+      borderRadius: '50px',
+      border: 'none',
+      height: '30px',
+      color: '#FFF',
+      fontWeight: 'bold',
+      cursor: 'pointer',
+      margin: '1rem 0 0 1rem',
+    "&:hover": {
       backgroundColor: "#06326b",
       color: '#FFF',
       cursor: 'pointer'
+    }
   }
-}
 }
 
 const useStyles = makeStyles(style)

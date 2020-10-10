@@ -6,10 +6,11 @@ import {
   makeStyles 
 } from '@material-ui/core';
 
+import Navbar from '../../Navbar';
+
 const style = (theme)=>({
   root: {
     backgroundColor: '#0E1834',
-    paddingTop: '1rem',
     paddingBottom: '1rem'
   },
   title: {
@@ -19,8 +20,8 @@ const style = (theme)=>({
     paddingBottom: '1rem'
   },
   avatar: {
-    width: theme.spacing(10),
-    height: theme.spacing(10),
+    width: "150px",
+    height: "150px",
     marginTop: '1rem',
     marginLeft: 'auto',
     marginRight: 'auto',
@@ -36,6 +37,7 @@ const HeaderInmate = ({name, url}) => {
 
   return(
     <Box component="article" className={classes.root}>
+     <Navbar/>
       <Typography variant="h1" className={classes.title} align="center">
         {`${name.first} ${name.last}`} 
       </Typography>

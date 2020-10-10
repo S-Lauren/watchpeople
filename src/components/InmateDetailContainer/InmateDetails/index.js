@@ -9,6 +9,7 @@ import { useLocation } from 'react-router-dom';
 
 
 
+
 const style = {
   root: {
     padding: '0px',
@@ -26,11 +27,11 @@ const InmateDetails = () => {
 
   const classes = useStyles();
   const user = useGetUser();
-  // let location = useLocation()
-  // const randomImg = location.state.img
+  const location = useLocation()
+
   return(
-    <Grid className={classes.root}>    
-      <HeaderInmate name={user.data.name}url={user.data.picture} age={user.data.age} />
+    <Grid className={classes.root}>
+      <HeaderInmate name={user.data.name} url={location.state.img} age={user.data.age} />
       <Cartography position={user.data.positions}/>
       <InmateDatas user={user.data}/> 
     </Grid>
